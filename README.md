@@ -44,4 +44,4 @@ Returns saved text value
 2. Login with guest/guest.
 3. Open **Queues** tab.
 4. Click on **parking-lot.exchange.queue**.
-5. And there you can click **Get messages** to check message content/
+5. And there you can click **Get messages** to check message content.
