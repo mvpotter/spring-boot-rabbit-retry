@@ -1,0 +1,34 @@
+version: '3.5'
+
+services:
+
+  app:
+    image: mpotter/spring-boot-rabbit-retry:latest
+    restart: unless-stopped
+    environment:
+      - spring.profiles.active=docker
+    ports:
+      - "8091:8091"
+    depends_on:
+      - rabbit
+    networks:
+      - net
+
+  rabbit:
+    image: rabbitmq:3.9.22-management-alpine
+    restart: unless-stopped
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+      - "15692:15692"
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge
+    name: net
+    external: false

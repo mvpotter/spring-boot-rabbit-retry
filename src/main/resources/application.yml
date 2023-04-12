@@ -1,0 +1,17 @@
+server.port: 8091
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      direct:
+        default-requeue-rejected: false
+
+app:
+  rabbitmq:
+    retry:
+      max-attempts: 3
+      delay: 5s
